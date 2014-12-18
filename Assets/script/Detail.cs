@@ -45,7 +45,6 @@ public class Detail : MonoBehaviour {
 	public void parseJson(string result)
 	{
 		JsonData jd = JsonMapper.ToObject(result);
-		
 		JsonData jdResult = jd["weatherinfo"]; 
 		
 		this.name = (string)jdResult["city"];

@@ -47,6 +47,8 @@ public class Camera : MonoBehaviour {
 			mySphere.setNewCity(Constants.proIds, false);
 			labelText3 = Constants.welcome;
 		}
+		labelLeftDetail = "";
+		labelRightDetail = "";
 	}
 
 	// 详细
@@ -110,20 +112,15 @@ public class Camera : MonoBehaviour {
 		detailR.fontSize = 15;       
 		GUI.Label(new Rect(Screen.width/2, 0, Screen.width/2, 300), labelRightDetail, detailR);
 		// for test
-		if(GUILayout.Button("callVoice",GUILayout.Height(10)))
+		if(GUILayout.Button("详细",GUILayout.Height(50)))
 		{
 			detail("");
 		}
-//
-//		if(GUILayout.Button("callVoice2",GUILayout.Height(50)))
-//		{
-//			voice("黑河");
-//		}
-//
-//		if(GUILayout.Button("33333",GUILayout.Height(50)))
-//		{
-//			mySphere.getDetail("本溪");
-//		}
+
+		if(GUILayout.Button("后退",GUILayout.Height(50)))
+		{
+			back("");
+		}
 	}
 
 	// Update is called once per frame

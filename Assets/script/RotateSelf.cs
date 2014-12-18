@@ -79,9 +79,12 @@ public class RotateSelf : MonoBehaviour {
 		yield return 0;
 	}
 
+	// 获取天气信息
 	public void getWeather(City city, GameObject text)
 	{
+		// 根据城市id得到获取天气服务的url
 		string url = "http://www.weather.com.cn/data/cityinfo/" + city.getCityID() +".html";
+		// 通过url来给小球赋值
 		StartCoroutine(GET(url,city,text));
 	}
 	
@@ -94,18 +97,19 @@ public class RotateSelf : MonoBehaviour {
 			//GET请求失败
 			if (www.error != null)
 			{
-				//GameObject.FindWithTag("MainCamera").GetComponent<Camera>().labelText = Constants.Error;
 				Debug.Log ("error is :" + www.error);
-			} 
+			}
+			//GET请求成功
 			else 
 			{
-				//GET请求成功
 				//Debug.Log(www.text);
+				// 解析天气信息，给对象赋值
 				city.parseJson (www.text);
+				// 根据当前city对象中的属性给小球复制
 				TextMesh tm = (TextMesh)text.GetComponent<TextMesh> ();
 				ChangeColor changeColor = text.GetComponent<ChangeColor>();
 
-				// 根据城市和省份设置对象属性
+				// 判断当前对象是城市还是省份来分别赋值
 				if (isCity) {
 					tm.text = city.getName ();
 					changeColor.name = city.getName();
@@ -119,8 +123,10 @@ public class RotateSelf : MonoBehaviour {
 					changeColor.tempture = city.getTempture();
 				}
 				
+				// 设置当前颜色
 				tm.color = city.getWeatherColor();
 				
+				// 根据城市和省份的不同来判断是否设置图片
 				foreach (Transform child in text.transform) {
 					
 					if (isCity) {
@@ -137,7 +143,6 @@ public class RotateSelf : MonoBehaviour {
 							Texture2D pic = (Texture2D)Resources.Load(Util.getPicPath(city.getImg2()));
 							child.renderer.material.shader = Shader.Find ("Unlit/Transparent");
 							child.renderer.material.mainTexture = (Texture)pic;
-
 						}
 						else
 						{
@@ -150,8 +155,8 @@ public class RotateSelf : MonoBehaviour {
 					{
 						child.active = false;
 					}
-
 				}
+				// 设置小球大小
 				text.transform.localScale = city.getSize();
 				text.GetComponent<ChangeColor>().oldScale = text.transform.localScale;
 			}
