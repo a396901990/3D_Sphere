@@ -5,42 +5,171 @@ using System.Collections;
  * 2014.9
  * @author Xiangyu Guo
  * */
-public class Constants : MonoBehaviour
-{
+public class Constants : MonoBehaviour {
 
-		public static string[] pros = {"北京","上海", "天津", "重庆", "黑龙江", "吉林", "辽宁", "内蒙古", "河北", "山西", "陕西",
+	public static string[] pros = {"北京","上海", "天津", "重庆", "黑龙江", "吉林", "辽宁", "内蒙古", "河北", "山西", "陕西",
 		"山东", "新疆", "西藏", "青海", "甘肃", "宁夏", "河南", "江苏", "湖北", "浙江",
 		"安徽", "福建", "江西", "湖南", "贵州", "四川", "广东", "云南", "广西", "海南", "台湾"};
-		
-		public static Color c_0_28 = new Color (31f / 255f, 23f / 255f, 134f / 255f);
-		public static Color c_0_24 = new Color (49f / 255f, 36f / 255f, 210f / 255f);
-		public static Color c_0_20 = new Color (44f / 255f, 86f / 255f, 241f / 255f);
-		public static Color c_0_16 = new Color (66f / 255f, 138f / 255f, 235f / 255f);
-		public static Color c_0_12 = new Color (118f / 255f, 182f / 255f, 231f / 255f);
-		public static Color c_0_8 = new Color (137f / 255f, 224f / 255f, 240f / 255f);
-		public static Color c_0_4 = new Color (210f / 255f, 210f / 255f, 210f / 255f);
-		public static Color c_0 = new Color (1, 1, 1);
-		public static Color c_4 = new Color (250f / 255f, 243f / 255f, 188f / 255f);
-		public static Color c_8 = new Color (254f / 255f, 235f / 255f, 133f / 255f);
-		public static Color c_12 = new Color (250f / 255f, 223f / 255f, 70f / 255f);
-		public static Color c_16 = new Color (250f / 255f, 243f / 255f, 188f / 255f);
-		public static Color c_20 = new Color (252f / 255f, 156f / 255f, 53f / 255f);
-		public static Color c_24 = new Color (251f / 255f, 123f / 255f, 29f / 255f);
-		public static Color c_28 = new Color (251f / 255f, 96f / 255f, 26f / 255f);
-		public static Color c_32 = new Color (251f / 255f, 49f / 255f, 23f / 255f);
-		public static Color c_36 = new Color (239f / 255f, 2f / 255f, 20f / 255f);
-		public static Color c_40 = new Color (194f / 255f, 2f / 255f, 29f / 255f);
-		public static Color c_44 = new Color (149f / 255f, 2f / 255f, 67f / 255f);
-	
-		// Use this for initialization
-		void Start ()
-		{
 
-		}
+	public static string[] proIds = {"101010100","101020100", "101030100", "101040100", "101050101", "101060101", "101070101", "101080101", "101090101", "101100101", "101110101",
+		"101120101", "101130101", "101140101", "101150101", "101160101", "101170101", "101180101", "101190101", "101200101", "101210101",
+		"101220101", "101230101", "101240101", "101250101", "101260101", "101270101", "101280101", "101290101", "101300101", "101310101", "101340101"};
+
+	public static Color c_0_28 = new Color(31f/255f, 23f/255f, 134f/255f);
+	public static Color c_0_24 = new Color(49f/255f, 36f/255f, 210f/255f);
+	public static Color c_0_20 = new Color(44f/255f, 86f/255f, 241f/255f);
+	public static Color c_0_16 = new Color(66f/255f, 138f/255f, 235f/255f);
+	public static Color c_0_12 = new Color(118f/255f, 182f/255f, 231f/255f);
+	public static Color c_0_8 = new Color(137f/255f, 224f/255f, 240f/255f);
+	public static Color c_0_4 = new Color(210f/255f, 210f/255f, 210f/255f);
+	public static Color c_0 = new Color (1, 1, 1);
+	public static Color c_4 = new Color (250f/255f, 243f/255f, 188f/255f);
+	public static Color c_8 = new Color (254f/255f, 235f/255f, 133f/255f);
+	public static Color c_12 = new Color (250f/255f, 223f/255f, 70f/255f);
+	public static Color c_16 = new Color (250f/255f, 243f/255f, 188f/255f);
+	public static Color c_20 = new Color (252f/255f, 156f/255f, 53f/255f);
+	public static Color c_24 = new Color (251f/255f, 123f/255f, 29f/255f);
+	public static Color c_28 = new Color (251f/255f, 96f/255f, 26f/255f);
+	public static Color c_32 = new Color (251f/255f, 49f/255f, 23f/255f);
+	public static Color c_36 = new Color (239f/255f, 2f/255f, 20f/255f);
+	public static Color c_40 = new Color (194f/255f, 2f/255f, 29f/255f);
+	public static Color c_44 = new Color (149f/255f, 2f/255f, 67f/255f);
+
+	public static string welcome = "欢迎使用3D语言天气球";
+
+	public static string author = "Developed by 大苞米(QQ:396901990)";
+
+	public static string wifi = "因为需要实时获取天气信息,建议在WIFI环境下使用";
+
+	public static string voiceCity = "点击语音说出想查询的[省份名称]或[城市名称]";
+
+	public static string Detail = "点击[详细]按钮可以查看具体信息";
+
+	public static string Error = "Error";
+
+	public static string[] beijing = new string[]{"101010200","101071201","101010400","101010500","101190509","101010700","101010800","101010900","101011000","101011100","101011200","101011300","101011400","101011500"};
+
+	public static string[] shanghai = new string[]{"101020200","101020300","101020400","101020500","101020600","101230508","101020800","101060310","101021000","101021100","101021101","101021102","101021200","101021300"};
+
+	public static string[] tianjin = new string[]{"101030200","101030300","101030400","101030500","101030600","101030700","101030800","101030900","101031000","101031100","101031200","101031300","101031400"};
+
+	public static string[] chongqing = new string[]{"101040200","101040300","101040400","101040500","101040600","101040700","101040800","101040900","101041000","101041100","101041400","101041500","101041600","101041700","101041800","101041900","101042000","101042100","101042200","101042300","101042400","101042500","101042600","101042700","101042800","101042900","101043000","101043100","101043200"};
+
+	public static string[] heilongjiang = new string[]{"101050101","101050201","101050301","101050401","101050501","101050601","101050701","101050801","101050901","101051101","101051201","101051301"};
+
+	public static string[] jilin = new string[]{"101060101","101060201","101060301","101060401","101060501","101060601","101060701","101060801","101060901"};
+
+	public static string[] liaoning = new string[]{"101070101","101070201","101070301","101070401","101070501","101070601","101070701","101070801","101070901","101071001","101071101","101071201","101071301","101071401"};
+
+	public static string[] neimenggu = new string[]{"101080101","101080201","101080301","101080401","101080501","101080601","101080701","101080801","101080901","101081001","101081101","101081201"};
+
+	public static string[] hebei = new string[]{"101090101","101090201","101090301","101090501","101090601","101090701","101090801","101090901","101091001","101091101"};
+
+	public static string[] shanxi = new string[]{"101100101","101100201","101100301","101100401","101100501","101100601","101100701","101100801","101100901","101101001","101101101"};
+
+	public static string[] sanxi = new string[]{"101110101","101110201","101110301","101110401","101110501","101110601","101110701","101110801","101110901","101111001"};
+
+	public static string[] shandong = new string[]{"101120101","101120201","101120301","101120401","101120501","101120601","101120701","101120801","101120901","101121001","101121101","101121201","101121301","101121401","101121501","101121601","101121701"};
+
+	public static string[] xinjiang = new string[]{"101130101","101130201","101130301","101130401","101130501","101130601","101130701","101130801","101130901","101131001","101131101","101131201","101131301","101131401","101131501","101131601"};
+
+	public static string[] xizang = new string[]{"101140101","101140201","101140301","101140401","101140501","101140601","101140701"};
+
+	public static string[] qinghai = new string[]{"101150101","101150201","101150301","101150401","101150501","101150601","101150701","101150801"};
+
+	public static string[] gansu = new string[]{"101160101","101160201","101160301","101160401","101160501","101160601","101160701","101160801","101160901","101161001","101161101","101161201","101161301"};
+
+	public static string[] ningxia = new string[]{"101170101","101170201","101170301","101170401","101170501"};
+
+	public static string[] henan = new string[]{"101180101","101180201","101180301","101180401","101180501","101180601","101180701","101180801","101180901","101181001","101181101","101181201","101181301","101181401","101181501","101181601","101181701","101181801"};
+
+	public static string[] jiangsu = new string[]{"101190101","101190201","101190301","101190401","101190501","101190601","101190701","101190801","101190901","101191001","101191101","101191201","101191301"};
+
+	public static string[] hubei = new string[]{"101200101","101200201","101200301","101200401","101200501","101200601","101200701","101200801","101200901","101201001","101201101","101201201","101201301","101201401","101201501","101201601","101201701"};
+
+	public static string[] zejiang = new string[]{"101210101","101210201","101210301","101210401","101210501","101210601","101210701","101210801","101210901","101211001","101211101"};
+
+	public static string[] anhui = new string[]{"101220101","101220201","101220301","101220401","101220501","101220601","101220701","101220801","101220901","101221001","101221101","101221201","101221301","101221401","101221501","101221601","101221701"};
+
+	public static string[] fujian = new string[]{"101230101","101230201","101230301","101230401","101230501","101230601","101230701","101230801","101230901"};
+
+	public static string[] jiangxi = new string[]{"101240101","101240201","101240301","101240401","101240501","101240601","101240701","101240801","101240901","101241001","101241101"};
+
+	public static string[] hunan = new string[]{"101250101","101250201","101250301","101250401","101250501","101250601","101250701","101250801","101250901","101251001","101251101","101251201","101251301","101251401","101251501"};
+
+	public static string[] guizhou = new string[]{"101260101","101260201","101260301","101260401","101260501","101260601","101260701","101260801","101260901"};
+
+	public static string[] sicuan = new string[]{"101270101","101270201","101270301","101270401","101270501","101270601","101270701","101270801","101270901","101271001","101271101","101271201","101271301","101271401","101271501","101271601","101271701","101271801","101271901","101272001","101272101"};
+
+	public static string[] guangdong = new string[]{"101280101","101280201","101280301","101280401","101280501","101280601","101280701","101280801","101280901","101281001","101281101","101281201","101281301","101281401","101281501","101281601","101281701","101281801","101281901","101282001","101282101"};
+
+	public static string[] yunnan = new string[]{"101290101","101290201","101290301","101290401","101290501","101290601","101290701","101290801","101290905","101291001","101291101","101291201","101291301","101291401","101291501","101291601"};
+
+	public static string[] guangxi = new string[]{"101300101","101300201","101300301","101300401","101300501","101300601","101300701","101300801","101300901","101301001","101301101","101301201","101301301","101301401"};
+
+	public static string[] hainan = new string[]{"101310101","101310201"};
+
+	public static string[] taiwan = new string[]{"101340101","101340201","101340301","101340401","101340501","101340601","101340701","101340801","101340901"};
+
+	public static Hashtable initCity(Hashtable hashTable) {
+		hashTable = new Hashtable ();
+
+		hashTable.Add ("北京", beijing);
+		hashTable.Add ("上海", shanghai);
+		hashTable.Add ("天津", tianjin);
+		hashTable.Add ("重庆", chongqing);
+		hashTable.Add ("黑龙江", heilongjiang);
+		hashTable.Add ("吉林", jilin);
+		hashTable.Add ("辽宁", liaoning);
+		hashTable.Add ("内蒙古", neimenggu);
+		hashTable.Add ("河北", hebei);
+		hashTable.Add ("山西", shanxi);
+		hashTable.Add ("陕西", sanxi);
+		hashTable.Add ("山东", shandong);
+		hashTable.Add ("新疆", xinjiang);
+		hashTable.Add ("西藏", xizang);
+		hashTable.Add ("青海", qinghai);
+		hashTable.Add ("甘肃", gansu);
+		hashTable.Add ("宁夏", ningxia);
+		hashTable.Add ("河南", henan);
+		hashTable.Add ("江苏", jiangsu);
+		hashTable.Add ("湖北", hubei);
+		hashTable.Add ("浙江", zejiang);
+		hashTable.Add ("安徽", anhui);
+		hashTable.Add ("福建", fujian);
+		hashTable.Add ("江西", jiangxi);
+		hashTable.Add ("湖南", hunan);
+		hashTable.Add ("贵州", guizhou);
+		hashTable.Add ("四川", sicuan);
+		hashTable.Add ("广东", guangdong);
+		hashTable.Add ("云南", yunnan);
+		hashTable.Add ("广西", guangxi);
+		hashTable.Add ("海南", hainan);
+		hashTable.Add ("台湾", taiwan);
+
+		return hashTable;
+	}
 	
-		// Update is called once per frame
-		void Update ()
-		{
+	public static Hashtable initLabel(Hashtable hashTable) {
+		hashTable = new Hashtable ();
+
+		hashTable.Add (0, Detail);
+		hashTable.Add (1, welcome);
+		hashTable.Add (2, author);
+		hashTable.Add (3, wifi);
+		hashTable.Add (4, voiceCity);
+
+		return hashTable;
+	}
 	
-		}
+	// Use this for initialization
+	void Start () {
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+
 }

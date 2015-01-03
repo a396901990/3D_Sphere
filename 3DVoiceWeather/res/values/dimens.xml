@@ -1,0 +1,6 @@
+<resources>
+
+    <dimen name="status_bar_height">25dip</dimen>
+    <dimen name="main_bg_height">1500dip</dimen>
+
+</resources>
