@@ -64,7 +64,9 @@ public class Camera : MonoBehaviour {
 				foreach (City city in citys) {
 					if (cityName.Equals(city.getName())) {
 						isTrue = false;
-						mySphere.findCity(cityName);
+						//mySphere.findCity(cityName);
+						mySphere.isFind = true;
+						mySphere.findName = cityName;
 					}
 				}
 				if (isTrue) {
@@ -76,8 +78,11 @@ public class Camera : MonoBehaviour {
 				bool isTrue = true;
 				for (int i=0; i<Constants.pros.Length; i++) {
 					if (Constants.pros[i].Equals(cityName)) {
-						mySphere.findCity(cityName);
+						//mySphere.findCity(cityName);
 						isTrue = false;
+						//mySphere.findCity(cityName);
+						mySphere.isFind = true;
+						mySphere.findName = cityName;
 					}
 				}
 				if (isTrue) {
@@ -162,20 +167,11 @@ public class Camera : MonoBehaviour {
 		detailR.fontSize = 25;       
 		GUI.Label(new Rect(Screen.width/2, 0, Screen.width/2, 400), labelRightDetail, detailR);
 		// for test
-//		if(GUILayout.Button("callVoice",GUILayout.Height(50)))
-//		{
-//			detail("");
-//		}
-//
-//		if(GUILayout.Button("callVoice2",GUILayout.Height(50)))
-//		{
-//			voice("黑河");
-//		}
-//
-//		if(GUILayout.Button("33333",GUILayout.Height(50)))
-//		{
-//			mySphere.getDetail("本溪");
-//		}
+		if(GUILayout.Button("Voice",GUILayout.Height(50)))
+		{
+			mySphere.isFind = true;
+			mySphere.findName = "北京";
+		}
 	}
 
 	// Update is called once per frame

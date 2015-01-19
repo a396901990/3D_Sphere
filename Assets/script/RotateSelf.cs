@@ -35,6 +35,9 @@ public class RotateSelf : MonoBehaviour {
 	public Transform cameraTarget;
 	public Hashtable allCityID;
 
+	public bool isFind = false;
+	public string findName = "";
+
 	void Start() {
 		allCityID = Constants.initCity (allCityID);
 		setNewCity (Constants.proIds, false, "北京");
@@ -260,6 +263,24 @@ public class RotateSelf : MonoBehaviour {
 
 	void Update ()      
 	{  
+		// 搜索城市
+		if(isFind){
+			foreach (Transform child in gameObject.transform)
+			{
+				if (child.GetComponent<TextMesh> ().text.Equals(findName)) {
+
+					Vector3 targetDir = child.position - transform.position;
+					Vector3 cameraDir = -Vector3.forward;
+
+					Quaternion rotation = Quaternion.FromToRotation(targetDir, cameraDir) * transform.rotation;
+					transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 3f);
+
+					if (Vector3.Angle(targetDir, cameraDir) < 1f) {
+						isFind = false;
+					}
+				}
+			}
+		}
 
 		// 计算角度,透明度,颜色
 		foreach (Transform child in gameObject.transform)
