@@ -53,14 +53,15 @@ public class Util : MonoBehaviour {
 	// 计算角度
 	public static float getAngle(Vector3 v3_from,Vector3 v3_to)
 	{
-		Vector3 v3=Vector3.Cross(v3_from,v3_to);
+		Vector3 v3 = Vector3.Cross(v3_from, v3_to);
+
 		if(v3.z>0)
 		{
-			return Vector3.Angle(v3_from,v3_to); 
+			return Vector3.Angle(v3_from, v3_to); 
 		}
 		else
 		{
-			return -Vector3.Angle(v3_from,v3_to);
+			return -Vector3.Angle(v3_from, v3_to);
 		}
 	}
 

@@ -219,23 +219,43 @@ public class RotateSelf : MonoBehaviour {
 		foreach (Transform child in gameObject.transform)
 		{
 			if (child.GetComponent<TextMesh> ().text.Equals(cityName)) {
+				// 重置大球的角度
 				gameObject.transform.rotation = new Quaternion(0,0,0,0);
-				
+
+				// 测试辅助射线
 				Debug.DrawLine(gameObject.transform.position, cameraTarget.position, Color.red);
 				Debug.DrawLine(child.transform.position, gameObject.transform.position, Color.red);
-				
+
+				// 小球到大球的向量
 				Vector3 targetDir = child.position - transform.position;
-				
-//				Debug.Log(child.position.x + "  " + child.position.y + "  "+child.position.z);
+
+				// X轴负方向的向量
 				Vector3 dirR = -Vector3.right;
+				// Z轴负方向的向量
 				Vector3 dirF = -Vector3.forward;
+
+				// 计算绕Y轴的旋转角度
+				float angleY = Vector3.Angle(new Vector3(targetDir.x, 0, targetDir.z), dirF);
+				// 计算绕Z轴的旋转角度
+				float angleZ = Vector3.Angle(new Vector3(targetDir.x, targetDir.y, 0), dirR);
 				
-				float angleY = Util.getAngle(new Vector3(targetDir.x, 0,targetDir.z), dirF);
-				float angleZ = Util.getAngle(new Vector3(targetDir.x, targetDir.y,0), dirR);
-				
-				//Debug.Log(angleZ+"  "+angleY);
+				// 旋转大球
 				gameObject.transform.localRotation = Quaternion.Euler (0, angleY, angleZ);
 			}
+		}
+	}
+
+	public float getAngle(Vector3 v3_from,Vector3 v3_to)
+	{
+		Vector3 v3 = Vector3.Cross(v3_from, v3_to);
+		Debug.DrawLine(gameObject.transform.position, v3, Color.blue);
+		if(v3.z>0)
+		{
+			return Vector3.Angle(v3_from, v3_to); 
+		}
+		else
+		{
+			return -Vector3.Angle(v3_from, v3_to);
 		}
 	}
 
@@ -269,16 +289,53 @@ public class RotateSelf : MonoBehaviour {
 			{
 				if (child.GetComponent<TextMesh> ().text.Equals(findName)) {
 
+					// 圆心到目标球的向量
 					Vector3 targetDir = child.position - transform.position;
+					// 圆心到摄像机的向量
 					Vector3 cameraDir = -Vector3.forward;
 
+					Debug.DrawLine(gameObject.transform.position, targetDir, Color.green);
+					Debug.DrawLine(gameObject.transform.position, cameraDir, Color.green);
+					// 求出两个向量的旋转角度
 					Quaternion rotation = Quaternion.FromToRotation(targetDir, cameraDir) * transform.rotation;
+					// 大球旋转插值旋转这个角度
 					transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 3f);
+
+
+					
+
 
 					if (Vector3.Angle(targetDir, cameraDir) < 1f) {
 						isFind = false;
 					}
 				}
+			}
+		}
+
+		foreach (Transform child in gameObject.transform)
+		{
+			if (child.GetComponent<TextMesh> ().text.Equals("北京")) {
+			
+				
+				// 测试辅助射线
+				Debug.DrawLine(gameObject.transform.position, cameraTarget.position, Color.red);
+				Debug.DrawLine(child.transform.position, gameObject.transform.position, Color.red);
+				
+				// 小球到大球的向量
+				Vector3 targetDir = child.position - transform.position;
+				
+				// X轴负方向的向量
+				Vector3 dirR = -Vector3.right;
+				// Z轴负方向的向量
+				Vector3 dirF = -Vector3.forward;
+				Debug.DrawLine(gameObject.transform.position, new Vector3(dirR.x, dirR.y, dirR.z), Color.yellow);
+				// 计算绕Y轴的旋转角度
+				float angleY = getAngle(new Vector3(targetDir.x, 0, targetDir.z), dirF);
+				// 计算绕Z轴的旋转角度
+				float angleZ = getAngle(new Vector3(targetDir.x, targetDir.y, 0), dirR);
+				
+				// 旋转大球
+				//gameObject.transform.localRotation = Quaternion.Euler (0, angleY, angleZ);
 			}
 		}
 
