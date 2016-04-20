@@ -125,13 +125,13 @@ public class RotateSelf : MonoBehaviour
 				foreach (Transform child in gameObject.transform) {
 						child.LookAt (new Vector3 (cameraTarget.position.x, cameraTarget.position.y, -cameraTarget.position.z));
 						float dis = Vector3.Distance (child.position, cameraTarget.transform.position);
-						Color c = child.renderer.material.color;
+						Color c = child.GetComponent<Renderer>().material.color;
 						float alpha = Mathf.Abs (dis - r) / 5f + 0.1f;
 
-						child.renderer.material.color = new Color (c.r, c.g, c.b, alpha);
+						child.GetComponent<Renderer>().material.color = new Color (c.r, c.g, c.b, alpha);
 			
 						foreach (Transform cc in child.transform) {
-								cc.renderer.material.color = new Color (c.r, c.g, c.b, alpha);
+								cc.GetComponent<Renderer>().material.color = new Color (c.r, c.g, c.b, alpha);
 						}
 			
 				}
