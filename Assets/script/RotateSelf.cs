@@ -133,16 +133,16 @@ public class RotateSelf : MonoBehaviour {
 						if (child.tag == "pic1") {
 							//Debug.Log(getPicPath(city.getImg1()));
 							Texture2D pic = (Texture2D)Resources.Load(Util.getPicPath(city.getImg1()));
-							child.renderer.material.shader = Shader.Find ("Unlit/Transparent");
-							child.renderer.material.mainTexture = (Texture)pic;
+							child.GetComponent<Renderer>().material.shader = Shader.Find ("Unlit/Transparent");
+							child.GetComponent<Renderer>().material.mainTexture = (Texture)pic;
 
 						}
 						else if (child.tag == "pic2") 
 						{
 							//Debug.Log(getPicPath(city.getImg2()));
 							Texture2D pic = (Texture2D)Resources.Load(Util.getPicPath(city.getImg2()));
-							child.renderer.material.shader = Shader.Find ("Unlit/Transparent");
-							child.renderer.material.mainTexture = (Texture)pic;
+							child.GetComponent<Renderer>().material.shader = Shader.Find ("Unlit/Transparent");
+							child.GetComponent<Renderer>().material.mainTexture = (Texture)pic;
 						}
 						else
 						{
@@ -240,14 +240,14 @@ public class RotateSelf : MonoBehaviour {
 		{
 			child.LookAt(new Vector3(cameraTarget.position.x, cameraTarget.position.y, -cameraTarget.position.z));
 			float dis = Vector3.Distance(child.position, cameraTarget.transform.position);
-			Color c = child.renderer.material.color;
+			Color c = child.GetComponent<Renderer>().material.color;
 			float alpha = Mathf.Abs(dis-10f)/5f + 0.1f;
 			
-			child.renderer.material.color = new Color(c.r,c.g,c.b,alpha);
+			child.GetComponent<Renderer>().material.color = new Color(c.r,c.g,c.b,alpha);
 			
 			foreach (Transform cc in child.transform)
 			{
-				cc.renderer.material.color = new Color(c.r,c.g,c.b,alpha);
+				cc.GetComponent<Renderer>().material.color = new Color(c.r,c.g,c.b,alpha);
 			}
 			
 		}
