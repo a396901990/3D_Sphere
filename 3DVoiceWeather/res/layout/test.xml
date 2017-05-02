@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/unity_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="10dip" >
+
+        <Button
+            android:id="@+id/quit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="60dip"
+            android:layout_weight="1"
+            android:background="@drawable/exit_btn"
+            android:text="退出"
+            android:textColor="#ffffff"
+            android:textSize="20dip" />
+
+        <View
+            android:layout_width="10dip"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/return_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="60dip"
+            android:layout_weight="1"
+            android:background="@drawable/exit_btn"
+            android:text="后退"
+            android:textColor="#ffffff"
+            android:textSize="20dip" />
+
+        <View
+            android:layout_width="10dip"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/detail_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="60dip"
+            android:layout_weight="1"
+            android:background="@drawable/exit_btn"
+            android:text="详细"
+            android:textColor="#ffffff"
+            android:textSize="20dip" />
+
+        <View
+            android:layout_width="10dip"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/voice_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="60dip"
+            android:layout_weight="1"
+            android:background="@drawable/exit_btn"
+            android:text="语音"
+            android:textColor="#ffffff"
+            android:textSize="20dip" />
+    </LinearLayout>
+
+</RelativeLayout>
